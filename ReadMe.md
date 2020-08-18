@@ -13,7 +13,7 @@ For using library in your project, just add this to your ```pom.xml```.
 <dependency>
   <groupId>br.com.acolita</groupId>
   <artifactId>neat-enum</artifactId>
-  <version>0.1</version>
+  <version>0.2</version>
 </dependency>
 ```
 
