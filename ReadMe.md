@@ -68,7 +68,7 @@ enum KindOfFruit {
 
 This may sounds like little improvement, but when ```getCode``` is called itself inside a loop that can make a huge difference.
 
-## Composing method
+## Composing methods
 
 If you need, you can compose your getter method with another method.
 Bellow, an example on how you can compare your String keys in a case-insensitive way.
