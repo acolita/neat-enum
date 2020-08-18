@@ -1,8 +1,5 @@
 package br.com.acolita.neatenum;
 
-import java.util.Map;
-import java.util.Optional;
-
 public enum SampleStep {
     UNDEFINED("Undefined", -0x1),
     ONE("Init", 0x12),
@@ -13,8 +10,8 @@ public enum SampleStep {
     private final String stepName;
     private final int stepCode;
 
-    private static final Map<Integer, SampleStep> SAMPLE_STEP_BY_CODE = NeatEnumBy.getEnumBy(values(), SampleStep::getStepCode);
-    private static final Map<String, SampleStep> SAMPLE_STEP_BY_NAME = NeatEnumBy.getEnumBy(values(), SampleStep::getStepName, String::toLowerCase);
+    private static final NeatEnumGetter<SampleStep, Integer> GET_BY_CODE = new NeatEnumGetter<>(SampleStep.class, SampleStep::getStepCode);
+    private static final NeatEnumGetter<SampleStep, String> STEP_BY_NAME = new NeatEnumGetter<>(SampleStep.class, NeatCompose.compose(SampleStep::getStepName, String::toLowerCase));
 
     SampleStep(String stepName, int stepCode) {
         this.stepName = stepName;
@@ -22,11 +19,11 @@ public enum SampleStep {
     }
 
     public SampleStep getByCode(final int code) {
-        return Optional.ofNullable(SAMPLE_STEP_BY_CODE.getOrDefault(code, null)).orElseThrow(IllegalArgumentException::new);
+        return GET_BY_CODE.orThrow(code, IllegalArgumentException::new);
     }
 
     public SampleStep getByStepName(final String name) {
-        return SAMPLE_STEP_BY_NAME.getOrDefault(name.trim().toLowerCase(), UNDEFINED);
+        return STEP_BY_NAME.orElse(name.trim().toLowerCase(), UNDEFINED);
     }
 
     public int getStepCode() {

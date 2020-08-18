@@ -1,7 +1,5 @@
 package br.com.acolita.neatenum;
 
-import java.util.Map;
-
 public enum SampleState {
     AL("Alabama"),
     AK("Alaska"),
@@ -55,7 +53,7 @@ public enum SampleState {
     WY("Wyoming");
 
     private final String stateName;
-    private static final Map<String, SampleState> SAMPLE_STATE_BY_NAME = NeatEnumBy.getEnumBy(values(), SampleState::getStateName);
+    private final static NeatEnumGetter<SampleState, String> SAMPLE_STATE_BY_NAME = new NeatEnumGetter<>(SampleState.class, SampleState::getStateName);
 
     SampleState(final String stateName) {
         this.stateName = stateName;
@@ -65,7 +63,7 @@ public enum SampleState {
         return stateName;
     }
 
-    public SampleState getByStateName(final String stateName) {
-        return SAMPLE_STATE_BY_NAME.getOrDefault(stateName, null);
+    public static SampleState getByStateName(final String stateName) {
+        return SAMPLE_STATE_BY_NAME.orNull(stateName);
     }
 }

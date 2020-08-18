@@ -13,7 +13,7 @@ For using library in your project, just add this to your ```pom.xml```.
 <dependency>
   <groupId>br.com.acolita</groupId>
   <artifactId>neat-enum</artifactId>
-  <version>0.2</version>
+  <version>0.3</version>
 </dependency>
 ```
 
@@ -50,14 +50,14 @@ enum KindOfFruit {
     STRAWBERRY("S012");
     
     private final String code;
-    private static final Map<String, KindOfFruit> FRUIT_BY_CODE = NeatEnumBy.getEnumBy(values(), KindOfFruit::getCode); 
+    private static final NeatEnumGetter<KindOfFruit, String> FRUIT_BY_CODE = new NeatEnumGetter<>(KindOfFruit.class, KindOfFruit::getCode); 
 
     KindOfFruit(final String code) {
         this.code = code;
     }
     
     public KindOfFruit getByCode(final String code) {
-        return FRUIT_BY_CODE.getOrDefault(code, null);
+        return FRUIT_BY_CODE.orNull();
     }
 
     public String getCode() {
