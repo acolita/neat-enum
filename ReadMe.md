@@ -50,7 +50,8 @@ enum KindOfFruit {
     STRAWBERRY("S012");
     
     private final String code;
-    private static final NeatEnumGetter<KindOfFruit, String> FRUIT_BY_CODE = new NeatEnumGetter<>(KindOfFruit.class, KindOfFruit::getCode); 
+    private static final NeatEnumGetter<KindOfFruit, String> FRUIT_BY_CODE
+        = new NeatEnumGetter<>(KindOfFruit.class, KindOfFruit::getCode); 
 
     KindOfFruit(final String code) {
         this.code = code;
@@ -80,7 +81,8 @@ enum KindOfFruit {
     STRAWBERRY("S012");
     
     private final String code;
-    private static final NeatEnumGetter<KindOfFruit, String> FRUIT_BY_CODE = new NeatEnumGetter<>(KindOfFruit.class, NeatCompose.compose(KindOfFruit::getCode, String::toLowerCase)); 
+    private static final NeatEnumGetter<KindOfFruit, String> FRUIT_BY_CODE
+        = new NeatEnumGetter<>(KindOfFruit.class, NeatCompose.compose(KindOfFruit::getCode, String::toLowerCase)); 
 
     KindOfFruit(final String code) {
         this.code = code;
