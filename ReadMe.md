@@ -57,14 +57,41 @@ enum KindOfFruit {
     }
     
     public KindOfFruit getByCode(final String code) {
-        return FRUIT_BY_CODE.orNull();
+        return FRUIT_BY_CODE.orNull(code);
     }
 
     public String getCode() {
         return this.code;
     }
-
 }
 ```
 
 This may sounds like little improvement, but when ```getCode``` is called itself inside a loop that can make a huge difference.
+
+## Composing method
+
+If you need, you can compose your getter method with another method.
+Bellow, an example on how you can compare your String keys in a case-insensitive way.
+
+```java
+enum KindOfFruit {
+    APPLE("A652"),
+    GRAPE("C686"),
+    STRAWBERRY("S012");
+    
+    private final String code;
+    private static final NeatEnumGetter<KindOfFruit, String> FRUIT_BY_CODE = new NeatEnumGetter<>(KindOfFruit.class, NeatCompose.compose(KindOfFruit::getCode, String::toLowerCase)); 
+
+    KindOfFruit(final String code) {
+        this.code = code;
+    }
+    
+    public KindOfFruit getByCode(final String code) {
+        return FRUIT_BY_CODE.orNull(code.toLowerCase());
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+}
+```
