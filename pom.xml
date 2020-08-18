@@ -8,7 +8,7 @@
 
     <groupId>br.com.acolita</groupId>
     <artifactId>neat-enum</artifactId>
-    <version>0.3</version>
+    <version>0.4-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -133,6 +133,6 @@
         <connection>scm:git:git://github.com/ratacolita/neat-enum.git</connection>
         <developerConnection>scm:git:https://github.com/ratacolita/neat-enum.git</developerConnection>
         <url>http://github.com/ratacolita/neat-enum/tree/master</url>
-      <tag>neat-enum-0.3</tag>
+      <tag>HEAD</tag>
   </scm>
 </project>
