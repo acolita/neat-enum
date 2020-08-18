@@ -133,7 +133,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/ratacolita/neat-enum.git</connection>
-        <developerConnection>scm:git:ssh://github.com/ratacolita/neat-enum.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/ratacolita/neat-enum.git</developerConnection>
         <url>http://github.com/ratacolita/neat-enum/tree/master</url>
     </scm>
 </project>
