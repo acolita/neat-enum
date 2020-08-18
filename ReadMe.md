@@ -55,4 +55,4 @@ enum KindOfFruit {
 }
 ```
 
-This may sound like little improvement, but when ```getCode``` is called itself inside a loop that can make a huge difference.
+This may sounds like little improvement, but when ```getCode``` is called itself inside a loop that can make a huge difference.
