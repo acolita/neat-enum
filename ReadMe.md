@@ -4,7 +4,19 @@ This project aims to provide some neat utility methods for defining enum Java ob
 
 I see many projects on which people have implemented search through enum values using some loop construct.
 This is not efficient. A better way is to define a hashmap on the search key and search the map instead of looping.
- 
+
+## Use it within your project
+
+For using library in your project, just add this to your ```pom.xml```.
+
+```xml
+<dependency>
+  <groupId>br.com.acolita</groupId>
+  <artifactId>neat-enum</artifactId>
+  <version>0.1</version>
+</dependency>
+```
+
 ## Example
 Instead of doing this:
 ```java
